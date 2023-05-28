@@ -1,0 +1,125 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Student Edit</title>
+
+  </head>
+
+
+  <body>
+    <div>  <!--Main Div-->
+
+
+  <form action="{% url 'updateStudent' student.ID %}" method="POST" name="Edit-stu" onsubmit="return Add()">
+    {% csrf_token %}
+    <h2 style="text-align: center">Edit Student Details</h2>
+
+    <label for="uname"><b>Full Name</b></label>
+    <br>
+    <input type="text" id="Name" name="m" placeholder="Enter Name" onkeyup="nmValidation()" value="{{student.name}}" required>
+    <br>
+    <div id="nm-message">
+      <p id="length" class="invalid">Enter <b>Valid Name</b></p>
+    </div>
+    <br>
+    <label for="id"><b>ID</b></label>
+    <br>
+    <input type="text" id="id" name="ID" placeholder="Enter ID" pattern=".{8,}" onkeyup="idValidation()" value="{{student.ID}}" required>
+    <br>
+
+    <div id="id-message">
+      <p id="length" class="invalid">Enter <b>Valid ID</b></p>
+    </div>
+
+    <br>
+    <label for="birth"><b>Date of Birth</b></label>
+    <br>
+    <input type="date" id="Birth" name="birth" placeholder="Enter Date of Birth" onkeyup="birthValidation()" value="{{student.date|date:"Y-m-d"}}" required>
+    <br>
+    <div id="birth-message">
+      <p id="length" class="invalid">Enter <b>Valid BithDate</b></p>
+    </div>
+    <br>
+    <label for="universty"><b>Universty</b></label>
+    <br>
+    <input type="text" id="universty" name="uni" placeholder="Enter Universty Name" onkeyup="uniValidation()" value="{{student.university}}" required>
+    <br>
+    <div id="un-message">
+      <p id="length" class="invalid">Enter <b>universty</b></p>
+    </div>
+    <br>
+    <label for="gender"><b>Gender</b></label>
+    <br>
+    <select name="gender">
+      <option value="{{student.Gender}}">{{student.Gender}}</option>
+      {% if student.Gender != 'Male' %}<option value="Male">Male</option>{% endif %}
+      {% if student.Gender != 'Female' %}<option value="Female">Female</option>{% endif %}
+   </select>
+    <br>
+    <label for="Department"><b>Department</b></label>
+    <br>
+    <select name="DP">
+      <option value="{{student.department}}">{{student.department}}</option>
+      {% if student.department != 'CS' %}<option value="CS">CS</option>{% endif %}
+      {% if student.department != 'IT' %}<option value="IT">IT</option>{% endif %}
+      {% if student.department != 'DS' %}<option value="DS">DS</option>{% endif %}
+   </select>
+   <br>
+    <label for="Status"><b>Status</b></label>
+    <br>
+    <select name="Status">
+      <option value="{{student.statues}}">{{student.statues}}</option>
+      {% if student.statues != 'Active' %}<option value="Active">Active</option>{% endif %}
+      {% if student.statues != 'Inactive' %}<option value="Inactive">Inactive</option>{% endif %}
+   </select>
+    <br>
+    <label for="course"><b>Course 1</b></label>
+    <br>
+    <select id= "course1" name="course1">
+      <option value="{{student.course1}}">{{student.course1}}</option>
+      {% for x in course %}
+      {% if student.course1 != x.coursename %}
+
+       <option value="{{x.coursename}}">{{x.coursename}}</option>
+
+      {% endif %}
+      {% endfor %}
+   </select>
+   <br>
+    <label for="course"><b>Course 2</b></label>
+    <br>
+    <select id= "course2" name="course2">
+      <option value="{{student.course2}}">{{student.course2}}</option>
+      {% for x in course %}
+      {% if student.course2 != x.coursename %} 
+      <option value="{{x.coursename}}">{{x.coursename}}</option>
+      {% endif %}
+      {% endfor %}
+   </select>
+   <br>
+    <label for="course"><b>Course 3</b></label>
+    <br>
+    <select id= "course3" name="course3">
+      <option value="{{student.course3}}">{{student.course3}}</option>
+      {% for x in course %}
+      {% if student.course3 != x.coursename %}
+      <option value="{{x.coursename}}">{{x.coursename}}</option>
+      {% endif %}
+      {% endfor %}
+   </select>
+   <br>
+   <input type="submit" id ="edit" value="UPDATE" class="submit-button">
+ </form>
+
+    <footer></footer>
+
+
+    </div> <!--Main Div-->
+
+  </body>
+</html>
+{% endblock content %}

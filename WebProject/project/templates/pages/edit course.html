@@ -1,0 +1,81 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Edit course</title>
+  </head>
+
+  <body>
+    <div>  <!--Main Div-->
+
+  <form action="{% url 'updateCourse' course.CourseID %}" method="POST" onsubmit="return validate()">
+    {% csrf_token %}
+    <h2 style="text-align: center">Edit Course</h2>
+
+    <label for="uname"><b>Course Name</b></label>
+    <br>
+    <input type="text" id="Name" name="name" placeholder="Course Name" onkeyup="nmValidation()" value="{{course.coursename}}" required>
+    <br>
+    <div id="nm-message">
+      <p id="length" class="invalid">Enter <b>Valid Name</b></p>
+    </div>
+    <br>
+    <label for="id"><b>Course ID</b></label>
+    <br>
+    <input type="text" id="id" name="ID" placeholder="Enter ID" onkeyup="idValidation()" value="{{course.CourseID}}" required>
+    <br>
+    <div id="id-message">
+      <p id="length" class="invalid">Enter <b>Valid ID</b></p>
+    </div>
+
+    <br>
+    <label for="Department"><b>Department</b></label>
+    <br>
+    <select id="DP" name="DP">
+      <option value="{{course.Department}}">{{course.Department}}</option>
+      {% if course.Department != 'CS' %}<option value="CS">CS</option>{% endif %}
+      {% if course.Department != 'IT' %}<option value="IT">IT</option>{% endif %}
+      {% if course.Department != 'DS' %}<option value="DS">DS</option>{% endif %}
+   </select>
+   <br>
+   <label for="day"><b>lecture's day</b></label>
+   <br>
+   <select id="day" name="day">
+    <option value="{{course.CourseDay}}">{{course.CourseDay}}</option>
+     {% if course.CourseDay != 'Saturday' %}<option value="Saturday">Saturday</option>{% endif %}
+     {% if course.CourseDay != 'Sunday' %}<option value="Sunday">Sunday</option>{% endif %}
+     {% if course.CourseDay != 'Monday' %}<option value="Monday">Monday</option>{% endif %}
+     {% if course.CourseDay != 'Tuesday' %}<option value="Tuesday">Tuesday</option>{% endif %}
+     {% if course.CourseDay != 'Wednesday' %}<option value="Wednesday">Wednesday</option>{% endif %}
+     {% if course.CourseDay != 'Thursday' %} <option value="Thursday">Thursday</option>{% endif %}
+
+  </select>
+  <label for="Hours"><b>Number of Hours:</b></label>
+  <br>
+  <select id="hour" name="hours">
+    <option value="{{course.Hourses}}">{{course.Hourses}}</option>
+    {% if course.Hourses != '0' %}<option value="0">0</option>{% endif %}
+    {% if course.Hourses != '1' %}<option value="1">1</option>{% endif %}
+    {% if course.Hourses != '2' %}<option value="2">2</option>{% endif %}
+    {% if course.Hourses != '3' %}<option value="3">3</option>{% endif %}
+  </select>
+  <br>
+  <label for="num"><b>lecture's hall number: </b></label>
+  <br>
+  <input type="text" id="hall" name="hall" placeholder="hall no." onkeyup="hallValidation()" value="{{course.HallNo}}" required>
+  <br>
+  <div id="hall-message">
+    <p id="length" class="invalid">Enter <b>Valid NO.</b></p>
+  </div>
+  <br>
+   <input type="submit" id="edit" value="UPDATE" class="submit-button">
+ </form>
+
+    <footer></footer>
+    </div> <!--Main Div-->
+  </body>
+</html>
+
+{% endblock content %}

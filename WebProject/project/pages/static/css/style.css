@@ -1,0 +1,406 @@
+body{
+  margin: 0;
+  font-family: Arial;
+  overflow-x: hidden;
+}
+
+/* edit */
+/* scrolbar */
+::-webkit-scrollbar{
+  width: 20px;
+}
+::-webkit-scrollbar-track{
+background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: #a8bbbf;
+}
+/* edit */
+
+.header-top{
+  padding: 30px;
+  background-color: #203a72;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: space-between;
+}
+
+
+.header-top-left{
+  display: inline;
+  float: left;
+  width: 30%;    /* edit */
+
+}
+
+
+.header-top-right{
+  display: inline-block;
+  width: 70%;   /* edit */
+
+}
+
+.navbar {
+  overflow: hidden;
+  margin-top: 30px;
+  margin-right: 200px;
+}
+
+.navbar a {
+  float: right;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  width: 100px
+}
+
+/* The dropdown container */
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 0px 16px;
+  background-color: inherit;
+}
+
+/*  navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  color: rgb(0, 98, 255);    /* edit */
+  font-size: 15px;            /* edit */
+  /* text-transform:uppercase; */
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  width: 100px
+}
+
+/*dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.logo{
+  float: left;
+  margin-left: 200px;  /* edit */
+}
+ul{
+  list-style: none;
+   /* edit */
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+li{
+  float: right;
+  font-size: 17px;
+}
+
+
+li a{
+  width: 100px;
+  display: inline-block;
+  font-weight: bold;
+  color: black;
+  padding: 20px 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+
+
+.image{
+	background-image: url("/static/img/cairo.jpeg") ;
+	background-repeat: no-repeat;
+  background-size: 100% auto;
+	min-height: 800px;
+}
+
+.text-img{
+	color: white;
+	padding-top: 400px;
+	padding-left: 300px;
+	font-family: verdana;
+}
+
+.news{
+  background: #d1ecf1;
+  margin:35px;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.contain{
+  padding: 20px;
+}
+
+.fa .fa-caret-down{
+  padding-right: 220px;
+}
+.login-form{
+ width:600px;
+ background-color:#fff;
+ box-shadow:0 0 20px 0 #999;
+ border-radius: 8px;
+ margin-top:100px;
+ margin-right: auto;
+ margin-left: auto;
+ }
+
+.d{
+    display: flex;
+    justify-content: space-between;
+}
+
+table{
+    border-collapse: collapse;
+}
+td,th{
+    padding: 20px 40px;
+}
+tr{
+    background-color: gainsboro;
+    border: 1px white solid;
+}
+th{
+    text-transform: uppercase;
+    color: whitesmoke;
+    background-color: rgb(57, 122, 206);
+}
+
+/* edit */
+.studentTB td, .studentTB th{
+  padding: 20px 25px;
+}
+.studentTB td button{
+  padding: 5px;
+  width: 50px;
+   margin: 10% 20% 0% 0%;
+}
+
+
+form{
+  padding: 100px;
+}
+input[type=text], input[type=date],input[type=password],input[type=search],input[type=email]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  padding: 16px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+.submit-button{
+  width: 50%;
+  background: #016ABC;
+  align-content: center;
+  color: white;
+  border: 1px solid #eee;
+  border-radius: 50px;
+  font-size: 30px;
+  padding: 5px;
+  margin-left: 25%;
+  margin-top: 4%;
+}
+
+.submit-button:hover{
+  background: #B9DFFF;
+  color: white;
+  border: 1px solid #eee;
+  border-radius: 20px;
+}
+
+
+footer{
+  background: #1F3971;
+  color: white;
+  height: 100px;
+}
+
+/* the selection buttons*/
+.btn-group .button {
+  background-color:  #1F3971;
+  border: 1px solid  #1F3971;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 auto;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  border-radius: 5%;
+ bottom: 5%;
+
+}
+
+.btn-group .button:not(:last-child) {
+  border-bottom: none;
+}
+
+.btn-group .button:hover {
+  background-color:palevioletred;
+}
+/* form design*/
+.contaner
+{
+  width: 35%;
+    position: absolute;
+    top: 20%;
+    left:20%;
+    right: 41%;
+    bottom: 5%;
+    padding: 200px 50px;
+   background-color: #efefef;
+   size:40%;
+   border-style: outset;
+
+
+}
+/* image bof the people*/
+.m
+{
+    text-align: right;
+    top: 200px;
+}
+.header{
+  padding: 30px;
+  background-color: #203a72;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: space-between;
+
+}
+
+
+/* tap to select*/
+.title
+{
+    font-family: Arial;
+    position: absolute;
+    top: 50px;
+    transform: translateY(-30);
+    left: 150px;
+}
+/* word next logo*/
+.bt{
+    position: absolute;
+    transform: translateY(-30%);
+    font-family: Arial;
+    color: black;
+      top: 90px;
+    left: 225px;
+    font-size: 20px;
+}
+/* logo*/
+.l
+{
+    position: absolute;
+    top: 105px;
+    left: 200px;
+}
+/* the side button*/
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #1F3971;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: palevioletred;
+}
+
+/* validation hidden by defult */
+#psw-message,#nm-message,#id-message,#birth-message,#un-message,#hall-message{
+  display:none;
+  position: relative;
+  padding: 0px;
+  margin-top: 5px;
+}
+
+.errorMsg{
+  display:block;
+  position: relative;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+
+#psw-message,#nm-message,#id-message,#birth-message,#un-message,#hall-message,#errorMsg p {
+  padding: 0px 35px;
+  font-size: 15px;
+}
+/* color of the text */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}

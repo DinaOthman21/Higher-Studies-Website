@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+       
+        <title>login form</title>
+
+    </head>
+
+     <body>
+       <div>
+
+         <div style="width: 100%;height: 100%">
+            <div class="login-form">
+              <form action="" method="POST" id="login" name="login" onsubmit="return loginValidation()" >
+                {% if messages %}
+                {% for msg in messages  %}
+                <div class="errorMsg">
+                  <p id="length" class="invalid"><b>{{msg}}</b></p>
+                </div>            
+                {% endfor %}
+                  {% endif %}
+
+                 {% csrf_token %}
+                  <label for="email"><b>Name</b></label>
+                  <br>
+                  <input type="text" id="Name" name="gabr" placeholder="Enter your Name" onkeyup="nmValidation()" required>
+                  <br>
+                  <div id="nm-message">
+                    <p id="length" class="invalid">Enter <b>Valid Name</b></p>
+                  </div>
+                  <br>
+                  <label for="pswrd"><b>Password</b></label>
+                  <br>
+                  <input type="password" id="psw" name="psw" placeholder="Enter your password" pattern=".{6,}" onkeyup="pswValidation()" required>
+                  <br>
+                  <div id="psw-message">
+                    <p id="length" class="invalid">Minimum <b>6 characters</b></p>
+                  </div>
+                  <br>
+                  <input type="submit" value="Submit" class="submit-button">
+              </form>
+          </div>
+       </div>
+
+
+
+     </div>
+
+
+    </body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% load static %}
+
+<div>
+    <div class="header-top"> <!--top header Div-->
+
+
+        <div class="header-top-left">
+          <span style="padding-left:100px">Have any question?</span>
+        </div>
+
+        <div class="header-top-right">
+          <span class="fa fa-phone" style="padding-left: 370px"> 01234567890</span>
+          <span class="fa fa-envelope" style="padding-left: 20px"> info@colleg.com</span>
+
+
+        </div>
+
+    </div><!--top header Div-->
+
+    <div style="height: 120px"> <!-- navbar-->
+      <div class="logo"> <a href="#"> <img src="{% static 'img/logo.png'%} "> </a> </div>
+
+      <div style="float: right">
+
+      <nav>
+        {% if user.is_authenticated %} 
+        <div class="navbar">
+          
+          <a href="{% url 'Logout' %}">Logout</a>
+          <div class="dropdown">
+            <button class="dropbtn"><a href="{% url 'Course' %}">Course <i class="fa fa-caret-down"></i> </a> </button>
+            <div class="dropdown-content">
+              <a href="{% url 'AddCourse' %}">Add Course</a>
+              <a href="{% url 'Course' %}">view courses</a>            <!-- edit -->
+
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn"><a href="{% url 'Student' %}">Student <i class="fa fa-caret-down"></i> </a> </button>
+            <div class="dropdown-content">
+              <a href="{% url 'AddStudent' %}">Add Student</a>
+              <a href="{% url 'active' %}">Active-Inactive Student</a>
+              <a href="{% url 'Student' %}">view Student INFO</a>
+            </div>
+          </div>
+          <a href="{% url 'HomePage' %}">Home</a>
+        </div>
+      </div>
+
+    </div><!-- navbar-->
+    {% else %}
+    <div class="navbar">
+      <a href="{% url 'Login' %}">Login</a>
+      <a href="{% url 'HomePage' %}">Home</a>
+    </div>
+  </div>
+
+</div><!-- navbar-->
+    {% endif %}
+

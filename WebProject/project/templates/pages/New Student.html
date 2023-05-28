@@ -1,0 +1,111 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Add Student</title>
+
+    
+  </head>
+  <body>
+    <div>  <!--Main Div-->
+
+
+  <form action="" method="POST" id="AddStudent" name="ADD" onsubmit="return Add()">
+    {% csrf_token %}
+    <h2 style="text-align: center">Add Student</h2>
+
+    <label for="uname"><b>Full Name</b></label>
+    <br>
+    <input type="text" id="Name" name="name" placeholder="Enter Name" value="" onkeyup="nmValidation()" required>
+    <br>
+    <div id="nm-message">
+      <p id="length" class="invalid">Enter <b>Valid Name</b></p>
+    </div>
+    <br>
+    <label for="id"><b>ID</b></label>
+    <br>
+    <input type="text" id="id" name="ID" placeholder="Enter ID" onkeyup="idValidation()" required>
+    <br>
+
+    <div id="id-message">
+      <p id="length" class="invalid">Enter <b>Valid ID</b></p>
+    </div>
+
+    <br>
+    <label for="birth"><b>Date of Birth</b></label>
+    <br>
+    <input type="date" id="Birth" name="birth" placeholder="Enter Date of Birth" pattern=".{8,}" onkeyup="birthValidation()" required>
+    <br>
+    <div id="birth-message">
+      <p id="length" class="invalid">Enter <b>Valid BithDate</b></p>
+    </div>
+    <br>
+    <label for="universty"><b>Universty</b></label>
+    <br>
+    <input type="text" id="universty"  name="uni" placeholder="Enter Universty Name" onkeyup="uniValidation()" required>
+    <br>
+    <div id="un-message">
+      <p id="length" class="invalid">Enter <b>universty</b></p>
+    </div>
+    <br>
+    <label for="gender"><b>Gender</b></label>
+    <br>
+    <select name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+   </select>
+    <br>
+    <label for="Department"><b>Department</b></label>
+    <br>
+    <select name="DP">
+      <option value="IT">IT</option>
+      <option value="CS">CS</option>
+      <option value="DS">DS</option>
+   </select>
+   <br>
+    <label for="Status"><b>Status</b></label>
+    <br>
+    <select name="Status">
+      <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+   </select>
+   <br>
+   <label for="course"><b>Course 1</b></label>
+   <br>
+   <select id= "course1" name="course1">
+     {% for x in course %}
+     <option value="{{x.coursename}}">{{x.coursename}}</option>
+     {% endfor %}
+  </select>
+  <br>
+   <label for="course"><b>Course 2</b></label>
+   <br>
+   <select id= "course2" name="course2">
+     {% for x in course %}
+     <option value="{{x.coursename}}">{{x.coursename}}</option>
+     {% endfor %}
+  </select>
+  <br>
+   <label for="course"><b>Course 3</b></label>
+   <br>
+   <select id= "course3" name="course3">
+     {% for x in course %}
+     <option value="{{x.coursename}}">{{x.coursename}}</option>
+     {% endfor %}
+  </select>
+  <br>
+   <input type="submit" value="ADD" class="submit-button">
+ </form>
+
+<footer></footer>
+
+
+</div> <!--Main Div-->
+
+  </body>
+</html>
+
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Courses</title>
+</head>
+<body>
+
+<div style="padding: 100px">
+    <h2 style="margin: 0% 0% 3% 3%;text-align: center">Student Courses</h2>
+    <ul class="d">
+        <li>
+          <button style="margin-top: 50px"><a href="{% url 'AddCourse' %}">ADD COURSE </a></button>
+        </li>
+        <li>
+            <select name="filter" id="choice">
+              <option value="id">ID</option>
+              <option value="db">Department</option>
+              <option value="Name">Course Name</option>
+            </select>
+            <input type="text"  placeholder="Search" id="myInput" onkeyup="myFunction()" >
+        </li>
+    </ul>
+    <table id="myTable" align="center" width="95%" >
+           <tr class="header" align="left">
+               <th >id</th>
+               <th> course</th>
+               <th >department</th>
+               <th >hall no.</th>
+               <th >hours</th>
+               <th></th>
+           </tr>
+           {% for x in course%}
+           <tr class="record">
+             <td>{{x.CourseID}}</td>
+             <td>{{x.coursename}}</td>
+             <td>{{x.Department}}</td>
+             <td>{{x.HallNo}}</td>
+             <td>{{x.Hourses}}</td>
+             <td>
+              {% csrf_token %}
+                <button><a href="{% url 'EditCourse' x.CourseID %}" style="text-decoration: none;color:black">edit</a></button>
+                <button><a id="deleteCourse" href="{% url 'deleteCourse' x.CourseID %}" style="text-decoration: none;color:black ;">delete</a></button>
+              </td>
+         </tr>
+           {% endfor %}
+
+
+</div>
+</body>
+
+</html>
+{% endblock content %}

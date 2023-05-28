@@ -1,0 +1,82 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>New course</title>
+  </head>
+
+  <body>
+    <div>  <!--Main Div-->
+
+
+      <form action="" method="POST" onsubmit="return validate()">
+        {% csrf_token %}
+          <h2 style="text-align: center">New Course</h2>
+
+          <label for="uname"><b>Course Name</b></label>
+          <br>
+          <input type="text" id="Name" name="name" placeholder="Course Name" onkeyup="nmValidation()" required>
+          <br>
+          <div id="nm-message">
+            <p id="length" class="invalid">Enter <b>Valid Name</b></p>
+          </div>
+          <br>
+          <label for="id"><b>Course ID</b></label>
+          <br>
+          <input type="text" id="id" name="id" placeholder="Enter ID" onkeyup="idValidation()" required>
+          <br>
+          <div id="id-message">
+            <p id="length" class="invalid">Enter <b>Valid ID</b></p>
+          </div>
+
+          <br>
+          <label for="Department"><b>Department</b></label>
+          <br>
+          <select id="DP" name="DP">
+            <option value="CS">CS</option>
+            <option value="IT">IT</option>
+            <option value="DS">DS</option>
+         </select>
+         <br>
+         <label for="day"><b>lecture's day</b></label>
+         <br>
+         <select id="day" name="day">
+           <option value="Saturday">Saturday</option>
+           <option value="Saturday">Sunday</option>
+           <option value="Monday">Monday</option>
+           <option value="Tuesday">Tuesday</option>
+           <option value="Wednesday">Wednesday</option>
+           <option value="Thursday">Thursday</option>
+
+        </select>
+        <label for="Hours"><b>Number of Hours:</b></label>
+        <br>
+        <select id="hour" name="hours">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <br>
+        <label for="num"><b>lecture's hall number: </b></label>
+        <br>
+        <input type="text" id="hall" name="hall" placeholder="hall no." onkeyup="hallValidation()" required>
+        <br>
+        <div id="hall-message">
+          <p id="length" class="invalid">Enter <b>Valid NO.</b></p>
+        </div>
+        <br>
+         <input type="submit" value="ADD" class="submit-button">
+       </form>
+
+      <footer></footer>
+
+
+      </div> <!--Main Div-->
+  </body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% load static %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>newhomepage</title>
+    <meta charset="UTF-8"/>
+    <meta name="description"content=" mangement system"/>
+    <link rel = "stylesheet" href = "{% static 'css/style.css'%}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico'%}" type="image/x-icon">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/script.js' %}"></script>
+
+</head>
+    <body bgcolor="white">
+
+    <div class="header">
+
+
+    </div>
+    <div style="width:40px">
+    <div class="contaner" >
+
+        <div class="btn-group">
+                <form >
+                <div class="title">
+                    <h1 style="color: palevioletred;">Tap</h1>
+                    <h2><p style="color: navy;">to select your own website</p></h2>
+                </div>
+                <button class="button">Human Resource </button><br>
+                <button class="button">Students Affairs</button><br>
+                <button class="button"><a href="{% url 'HomePage' %}"style="color:white;text-decoration:none; " > Higher Studies</a></button><br>
+                <button class="button">Laboratory Tracking</button>
+
+         </form>
+        </div>
+    </div>
+  </div>
+
+    <div class="m">
+       <img src="{% static 'img/people.jpg' %}" width="600px">
+    </div>
+        <h3 class="bt">websites system</h3>
+    <div class="l">
+         <img src="{% static 'img/logo3.jpg'%} " width="20px">
+    </div>
+   <div class="sidebar">
+    <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
+    <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+    <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+
+   </div>
+</body>
+</html>
+
+{% endblock content %}

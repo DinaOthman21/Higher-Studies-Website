@@ -1,0 +1,80 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Active/Inactive</title>
+
+    </head>
+    
+    <body>
+      <div>
+
+        <div style="padding: 100px">
+        <H2 style="text-align: center">Student details</H2>
+
+        <ul class="d">
+            <li style="margin-left:6%">
+                <select id="choice">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+
+                </select>
+                <input type="text"  placeholder="search by id" id="myInput" onkeyup="Active()">
+
+            </li>
+            <!-- edit -->
+            <li>
+        </ul>
+
+        <table id="myTable" class="studentTB" align="center" width="50%" >
+          <tr  class = "header " align="left">
+              <th >id </th>
+              <th> Name</th>
+              <th >Date of birth</th>
+              <th >Universty</th>
+              <th >Gender</th>
+              <th >Department</th>
+              <th>status</th>
+              <th>courses</th>
+
+
+
+
+
+
+
+              <th></th>
+          </tr>
+          {% for x in student%}
+          <tr class="record">
+            <td>{{x.ID}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.date|date:"d/m/Y"}}</td>
+            <td>{{x.university}}</td>
+            <td>{{x.Gender}}</td>
+            <td>{{x.department}}</td>
+            <td>{{x.statues}}</td>
+            <td>{{x.course1}},{{x.course2}},{{x.course3}}</td>
+
+            <td>
+              {% csrf_token %}
+              <button><a href="{% url 'EditStudent' x.ID %}" style="text-decoration: none;color:black ;">edit</a></button>
+              <button><a id="delete" href="{% url 'deleteStudent' x.ID %}" style="text-decoration: none;color:black ;">delete</a></button>
+              <button><a href = "{% url 'RegisterCourse' x.ID %}" style="text-decoration:none;color: black;">REG. course</a></button>
+            </td>
+        </tr>
+          {% endfor %}
+           </table>
+
+
+      </div>
+    </div>
+     </div>
+
+     
+    </body>
+</html>
+{% endblock content %}

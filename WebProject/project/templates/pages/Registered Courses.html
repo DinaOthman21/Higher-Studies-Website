@@ -1,0 +1,88 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Registration</title>
+
+  </head>
+
+  <body>
+    <div>  <!--Main Div-->
+
+
+
+    <form action="{% url 'RegCourse' student.ID %}" method="post" onsubmit="return register()">
+      {% csrf_token %}
+      <h2 style="text-align: center">Course Registration</h2>
+
+      <label for="uname"><b>Full Name</b></label>
+      <br>
+      <input type="text" id="Name" name="name" placeholder="Enter Name" onkeyup="nmValidation()" value="{{student.name}}" required>
+      <br>
+      <div id="nm-message">
+        <p id="length" class="invalid">Enter <b>Valid Name</b></p>
+      </div>
+      <br>
+      <label for="id"><b>ID</b></label>
+      <br>
+      <input type="text" id="id" placeholder="Enter ID" onkeyup="idValidation()" value="{{student.ID}}" required>
+      <br>
+      <div id="id-message">
+        <p id="length" class="invalid">Enter <b>Valid ID</b></p>
+      </div>
+
+      <br>
+      <label for="course"><b>Course 1</b></label>
+      <br>
+      <select id= "course1" name="course1">
+        <option value="{{student.course1}}">{{student.course1}}</option>
+        {% for x in course %}
+        {% if student.course1 != x.coursename %}
+  
+         <option value="{{x.coursename}}">{{x.coursename}}</option>
+  
+        {% endif %}
+        {% endfor %}
+     </select>
+     <br>
+      <label for="course"><b>Course 2</b></label>
+      <br>
+      <select id= "course2" name="course2">
+        <option value="{{student.course2}}">{{student.course2}}</option>
+        {% for x in course %}
+        {% if student.course2 != x.coursename %}
+  
+         <option value="{{x.coursename}}">{{x.coursename}}</option>
+  
+        {% endif %}
+        {% endfor %}
+     </select>
+     <br>
+      <label for="course"><b>Course 3</b></label>
+      <br>
+      <select id= "course3" name="course3">
+      <option value="{{student.course3}}">{{student.course3}}</option>
+      {% for x in course %}
+      {% if student.course3 != x.coursename %}
+
+       <option value="{{x.coursename}}">{{x.coursename}}</option>
+
+      {% endif %}
+      {% endfor %}
+     </select>
+     <br>
+     <input type="submit" id="reg" value="Submit" class="submit-button">
+
+   </form>
+
+    <footer></footer>
+
+
+    </div> <!--Main Div-->
+  </body>
+</html>
+
+{% endblock content %}
